@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>EZODEER</title>
+    <title>EZO DEER</title>
 
     <!-- css -->
+    <link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
 
@@ -18,29 +20,33 @@
 <body>
     <main>
         <!-- nav -->
-        <header class="nav">
-            <a href="#" class="nav__logo">
-                <img src="./img/logo.png" class="" alt="ロゴ">
-                <p>EZO DEER</p>
-            </a>            
-            <div id="nav-toggle">
-                <div>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        <header class="header">
+            <div class="inner">
+                <div class="nav">
+                    <a href="#" class="nav__logo">
+                        <img src="./img/logo.png" class="" alt="ロゴ">
+                        <p>EZO DEER</p>
+                    </a>            
+                    <div id="nav-toggle">
+                        <div>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="gloval-nav">
+                        <nav>
+                            <ul>
+                                <li><a href="#">Menu1</a></li>
+                                <li><a href="#">Menu2</a></li>
+                                <li><a href="#">Menu3</a></li>
+                                <li><a href="#">Menu4</a></li>
+                                <li><a href="#">Menu5</a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
-            </div>
-            
-            <div id="gloval-nav">
-                <nav>
-                    <ul>
-                        <li><a href="#">Menu1</a></li>
-                        <li><a href="#">Menu2</a></li>
-                        <li><a href="#">Menu3</a></li>
-                        <li><a href="#">Menu4</a></li>
-                        <li><a href="#">Menu5</a></li>
-                    </ul>
-                </nav>
             </div>
         </header>
         <!-- end nav -->
@@ -60,9 +66,9 @@
                     <div class="com_titleDesc">EZO DEERとは</div>
                     <div class="com_title">ABOUT</div>
                     <p class="com_text">
-                        EZODEERとは北海道のエゾシカの革を用いてエゾシカ革製品を販売しているブランドです。<br>
+                        EZO DEERとは北海道のエゾシカの革を用いてエゾシカ革製品を販売しているブランドです。<br>
                         <br>
-                        EZODEERではエゾシカ革製品を制作することを通じてエゾシカ問題という北海道に生息するエゾシカにより食害や道路への飛び出し事故や森林被害などがありそれを広めるために活動しています。<br>
+                        EZO DEERではエゾシカ革製品を制作することを通じてエゾシカ問題という北海道に生息するエゾシカにより食害や道路への飛び出し事故や森林被害などがありそれを広めるために活動しています。<br>
                     </p>
                 </div>
             </div>
@@ -79,19 +85,19 @@
                 <div class="products__items">
                     <div class="products__items__item">
                         <img src="./img/item1.jpg" alt="商品1">
-                        <p>(dummy)ラウンド長財布 吹雪</p>
-                        <p>1,2000円 (税込)</p>
+                        <p class="products__items__item_name com_fontBold">(dummy)ラウンド長財布 吹雪</p>
+                        <p class="products__items__item_price">1,2000円 (税込)</p>
                     </div>
                     <div class="products__items__item">
                         <img src="./img/item2.jpg" alt="商品2">
-                        <p>(dummy)ラウンド長財布 ブラック</p>
-                        <p>1,2000円 (税込)</p>
+                        <p class="products__items__item_name com_fontBold">(dummy)ラウンド長財布 ブラック</p>
+                        <p class="products__items__item_price">1,2000円 (税込)</p>
                     </div>
                     <div class="products__items__item">
                         <img src="./img/item3.jpg" alt="商品3">
-                        <p>(dummy)ラウンド長財布</p>
-                        <p>キャラメル</p>
-                        <p>1,2000円 (税込)</p>
+                        <p class="products__items__item_name com_fontBold">(dummy)ラウンド長財布</p>
+                        <p class="products__items__item_name com_fontBold">キャラメル</p>
+                        <p class="products__items__item_price">1,2000円 (税込)</p>
                     </div>
                 </div>
                 <a href="#">
@@ -157,8 +163,11 @@
                     </div>
                     <div class="problem__items__damage">
                         <p>年間被害総額</p>
-                        <span class="problem__items__damage__price">100</span>
+                        <div class="problem__items__damage__price">
+                            <span>100</span>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div class="problem__bg"></div>
@@ -188,7 +197,16 @@
                         <p class="news__items__item_text">(dummy)お知らせが入ります。お知らせが入ります。お知らせが入ります。お知らせが入ります。</p>
                     </div>
                 </div>
-                
+
+                <!-- SPのときだけ表示されます -->
+                <!-- productsのボタンを使いまわしています -->
+                <div class="news__button">
+                    <a href="#">
+                        <div class="products__viewButton products___border">
+                            <div class="products__viewButton__text">MORE</div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <!-- end news -->
@@ -199,19 +217,18 @@
                 <div class="com_titleDesc">販売サイト</div>
                 <div class="com_title">SHOP</div>
                 <div class="shop__images">
-                    <a href="">
-                        <img src="./img/shop_minne.png" alt="minne">    
+                    <a href="https://minne.com/@takoya314">
+                        <img src="./img/shop_minne.png" alt="minne">
                     </a>
-                    <a href="">
+                    <a href="https://www.mercari.com/jp/u/381456340/">
                         <img src="./img/shop_mercari.png" alt="mercari">
                     </a>
-                    <a href="">
-                        <img src="./img/shop_minne.png" alt="creema">
+                    <a href="https://www.creema.jp/creator/3740843/item/onsale">
+                        <img src="./img/shop_creema.png" alt="creema">
                     </a>
-                    <a href="">
+                    <a href="https://fril.jp/shop/ezodeerrr">
                         <img src="./img/shop_rakuten.png" alt="rakuten">
                     </a>
-                    
                 </div>
             </div>
         </div>

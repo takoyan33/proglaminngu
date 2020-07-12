@@ -7,12 +7,21 @@ $w-sp: 768px;       // スマホ
 
 $maxWidth: 1200px;
 $intervalHeight: 140px;
+$intervalSPHeight: 240px;
 
 // color
 $black: #333333;
 $gray: #A8A8A8;
 $bg_gray: #D0D0D0;
 
+
+/*------------------------------------------*
+* フォントの読み込み
+*------------------------------------------*/
+@font-face {
+    font-family: "Roboto Black";
+    src: url(../font/Roboto-Black.ttf);
+}
 
 /*------------------------------------------*
 * メディアクエリ
@@ -47,8 +56,7 @@ html {
 * body
 *------------------------------------------*/
 body {
-    // FIXME:フォントの確認をする_
-    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     font-weight: 500;
     font-size: 1.6rem;
     color: $black;
@@ -65,6 +73,14 @@ body {
     width: $maxWidth;
     max-width: 100%;
     margin: 0 auto;
+
+    @include tab {
+        width: 95%;
+    }
+
+    @include sp {
+        width: 80%;
+    }
 }
 
 /*------------------------------------------*
@@ -72,46 +88,93 @@ body {
 *------------------------------------------*/
 .com_title {
     font-size: 5rem;
+    font-weight: lighter;
+
+    @include sp {
+        text-align: center;
+    }
 }
 
 .com_titleDesc {
     font-size: 1.2rem;
+    font-weight: normal;
     color: $gray;
+
+    @include sp {
+        text-align: center;
+    }
 }
 
 .com_text {
     font-size: 1.6rem;
+    font-weight: normal;
+}
+
+.com_fontBold {
+    font-weight: bold;
 }
 
 /*------------------------------------------*
 * nav
 *------------------------------------------*/
 $navHeight: 100px;
+$spNavHeight: 60px;
 
-.nav {
-    color: $black;
-    height: $navHeight;
-    max-width: $maxWidth;
-    margin: 0 auto;
-    position: relative;
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 100;
 
-    &__logo {
-        display: flex;
-        align-items: center;
+    // debug用_
+    // @include pc {
+        
+    // }
+    // @include tab {
+    //     background-color: yellowgreen;
+    // }
+    // @include sp {
+    //     background-color: tomato;
+    // }
 
-        img {
-            width: 68px;
-            height: 68px;
-            margin-right: 10px;
-        }
+    .nav {
+        color: $black;
+        max-width: $maxWidth;
+        position: relative;
+    
+        &__logo {
+            display: flex;
+            width: 220px;
+            align-items: center;
 
-        p {
-            font-size: 2.8rem;
-            line-height: $navHeight;
+            @include sp {
+                width: 150px;
+            }
+             
+            img {
+                width: 68px;
+                height: 68px;
+                margin-right: 10px;
+
+                @include sp {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+    
+            p {
+                font-size: 2.8rem;
+                line-height: $navHeight;
+
+                @include sp {
+                    font-size: 2rem;
+                    line-height: $spNavHeight;
+                }
+            }
         }
     }
-
 }
+
 
 #nav-toggle {
     width: 80px;
@@ -124,10 +187,18 @@ $navHeight: 100px;
     left: auto;
     margin: auto;
     cursor: pointer;
+
+    @include sp {
+        width: 40px;
+    }
     
     > div {
         position: relative;
         width: 80px;
+
+        @include sp {
+            width: 40px;
+        }
     }
 
     span {
@@ -178,13 +249,9 @@ $navHeight: 100px;
   }
 }
 
-/* z-index */
 #nav-toggle {
     z-index: 1000;
 }
-// #container {
-//     z-index: 900;
-// }
 
 #gloval-nav {
     background: #000;
@@ -272,8 +339,7 @@ $navHeight: 100px;
 *------------------------------------------*/
 .mainVisual {
     background: url("../img/dummy_main1.jpg") center center / cover no-repeat fixed;
-    height: calc(100vh - #{$navHeight});    // navサイズ分引く_
-
+    height: 100vh;
     margin-bottom: $intervalHeight;
 }
 
@@ -283,17 +349,36 @@ $navHeight: 100px;
 .about {
     margin-bottom: $intervalHeight;
 
+    @include sp {
+        margin-bottom: $intervalSPHeight;
+    }
+
     .inner {
         display: flex;
+
+        @include sp {
+            display: block;
+        }
     }
 
     &__image {
         width: 50%;
         height: 500px;
 
+        @include sp {
+            text-align: center;
+            width: 100%;
+        }
+    
         img {
+            width: 100%;
             max-width: 500px;
             max-height: 500px;
+            margin:  0 auto;
+
+            @include sp {
+                max-width: 100%;
+            }
         }
     }
 
@@ -301,7 +386,12 @@ $navHeight: 100px;
         margin-right: auto;
         width: 50%;
         max-width: 520px;
-        padding-top: 100px;
+        padding-top: 10%;
+
+        @include sp {
+            width: 100%;
+            max-width: 100%;
+        }
 
         .com_title {
             margin-bottom: 50px;
@@ -309,8 +399,24 @@ $navHeight: 100px;
 
         .com_text {
             margin-bottom: 80px;
+
+            @include sp {
+                // text-align: center;
+                font-size: 1.8rem;
+                letter-spacing: 0.1em;
+                line-height: 40px;
+            }
+            
+        }
+
+        @include tab {
+            margin-left: 30px;
+        }
+        @include sp {
+            margin-left: 0;
         }
     }
+
 }
 
 /*------------------------------------------*
@@ -332,21 +438,59 @@ $navHeight: 100px;
         justify-content: space-between;
         margin-bottom: 100px;
 
+        @include tab {
+            display: block;
+            text-align: center;
+        }
+
         &__item {
+
             img {
+                width: 100%;
                 max-width: 360px;
                 max-height: 360px;
                 margin-bottom: 30px;
+
+                @include tab {
+                    margin: 0 auto;
+                    max-width: 450px;
+                    max-height: 450px;
+                    margin-bottom: 20px;
+                }
             }
 
             p {
                 line-height: 36px;
+            }
+
+            &_name {
+                font-size: 2rem;
+
+                @include sp {
+                    font-size: 1.8rem;
+                }
+            }
+
+            &_price {
+                font-size: 1.8rem;
+
+                @include tab {
+                    margin-bottom: 100px;
+                }
+
+                @include sp {
+                    font-size: 1.6rem;
+                }
             }
         }
     }
 
     &__viewButton {
         $btnHeight: 120px;
+        @include sp {
+            $btnHeight: 60px;
+            font-size: 1.8rem;
+        }
 
         height: $btnHeight;
         background-color: $black;
@@ -371,6 +515,10 @@ $navHeight: 100px;
         background-color: $bg_gray;
         height: 460px;
         margin-top: 425px;
+
+        @include tab {
+            display: none;
+        }
     }
 }
 
@@ -397,12 +545,23 @@ $navHeight: 100px;
     position: relative;
     margin-bottom: 305px;
 
-    // FIXME: imgのサイズレイアウト通りに調整する必要がある_
     img {
         position: absolute;
         width: 40%;
-        min-width: 400px;
+        min-width: 500px;
         z-index: -10;
+
+        @include tab {
+            min-width: 450px;
+            top: 150px;
+        }
+
+        @include sp {
+            min-width: 100%;
+            max-height: 800px;
+            opacity: 0.2;
+            margin-top: 100px;
+        }
     }
 
     .com_title {
@@ -413,6 +572,18 @@ $navHeight: 100px;
         width: 58%;
         padding-top: 100px;
         margin-left: auto;
+        background-color: white;    // 画像と文字が重なった場合に見づらくならないよう白を背景に設定
+
+        @include tab {
+            width: 50%;
+        }
+
+        @include sp {
+            width: 95%;
+            max-width: 100vw;
+            background-color: transparent;
+            text-align: center;
+        }
     }
 
     &__item {
@@ -420,18 +591,33 @@ $navHeight: 100px;
         align-items: center;
         border-bottom: 1px solid #707070;
         margin-bottom: 5%;
+
+        @include sp {
+            display: block;
+        }
     
         &__number {
             font-size: 3.6rem;
+            font-weight: lighter;
+            font-style: italic;
             margin-right: 4%;
             margin-bottom: $borderInterval;
+
+            @include sp {
+                margin-top: 60px;
+                margin-bottom: 10px;
+            }
         }
 
         &__text {
             font-size: 1.8rem;
+            font-weight: bold;
             margin-bottom: $borderInterval;
+            
+            @include sp {
+                margin-bottom: 10px;
+            }
         }
-
     }
 }
 
@@ -451,10 +637,12 @@ $navHeight: 100px;
     }
 
     &__items {
-        $itemsHeight: 406px;
-
         display: flex;
         margin-bottom: 140px;
+
+        @include sp {
+            display: block;
+        }
 
         &__icons {
             background-color: white;
@@ -462,47 +650,109 @@ $navHeight: 100px;
             justify-content: space-around;
             align-items: center;
             width: 70%;
-            height: $itemsHeight;
+            height: 400px;
+
+            @include sp {
+                width: 100%;
+                height: 200px;
+            }
 
             &__item {
+                @include sp {
+                    width: 100px;
+                }
+
                 img {
                     margin-bottom: 30px;
+
+                    @include tab {
+                        max-width: 140px;
+                    }
+
+                    @include sp {
+                        width: 100px;
+                    }
                 }
     
                 p {
                     font-size: 1.6rem;
+                    font-weight: bold;
                     text-align: center;
                 }
             }
         }
 
         &__damage {
+
             width: 30%;
             color: white;
             background-color: $black;
-            padding-left: 42px;
             position: relative;
 
-            @mixin position() {
-                position: absolute;
-                top: 140px;
+            @include sp {
+                width: 100%;
+                height: 200px;
             }
-
+            
             p {
                 font-size: 1.9rem;
-                @include position();
+                position: absolute;
+                top: 35%;
+                left: 33%;
+                -webkit-transform : translate(-50%,-50%);
+                transform : translate(-50%,-50%);
+
+                @include sp {
+                    font-size: 1.5rem;
+                    top: 20%;
+                    left: 32%;
+                    -webkit-transform : translate(0,0);
+                    transform : translate(0,0);
+                }
             }
 
             &__price {
                 font-size: 11rem;
-                @include position();
+                font-family: "Roboto Black", sans-serif;
+                position: absolute;
+                top: 55%;
+                left: 40%;
+                -webkit-transform : translate(-50%,-50%);
+                transform : translate(-50%,-50%);
+                span {
+                    letter-spacing: -3px;
+                    
+                    @include sp {
+                        letter-spacing: 0;
+                    }
+                }
+
+                @include tab {
+                    font-size: 10rem;
+                }
+
+                @include sp {
+                    font-size: 8rem;
+                    left: 48%;
+                }
             }
             &__price::after {
-                font-size: 4.4rem;
+                font-size: 4rem;
                 content: "億円";
                 position: absolute;
-                top: 30px;
-                width: 100px;
+                top: 40px;
+                -ms-writing-mode: tb-rl;
+                writing-mode: vertical-rl;
+                font-weight: bold;
+                
+                @include tab {
+                    font-size: 3.5rem;
+                }
+
+                @include sp {
+                    top: 30px;
+                    font-size: 3rem;
+                }
             }
         }
     }
@@ -519,6 +769,11 @@ $navHeight: 100px;
         max-width: 1250px;
         height: 800px;
         margin-top: -120px;
+
+        @include tab {
+            width: 100%;
+            margin-top: -70px;
+        }
     }
     
 }
@@ -537,13 +792,22 @@ $navHeight: 100px;
         .com_title {
             font-size: 3rem;
             display: flex;
+
+            @include sp {
+                width: 100%;
+                display: block;
+            }
         }
 
         &__border {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-left: auto;            
+            margin-left: auto;
+            
+            @include sp {
+                display: none;
+            }
         }
         &__border:after {
             border-top: 1px solid;
@@ -551,6 +815,10 @@ $navHeight: 100px;
             flex-grow: 1;
             margin-left: 2rem;
             width: 60px;
+
+            @include sp {
+                display: none;
+            }
         }
     }
 
@@ -562,16 +830,46 @@ $navHeight: 100px;
             margin-bottom: 40px;
             font-size: 1.8rem;
 
+            @include sp {
+                display: block;
+            }
+
             &_day {
                 margin-right: 40px;
+                @include sp {
+                    font-size: 1.4rem;
+                    margin-bottom: 5px;
+                }
             }
 
             &_text {
-
+                @include sp {
+                    font-size: 1.2rem;
+                }
             }
         }
     }
 
+    // SPのときだけ表示されます
+    // productsのボタンを使いまわしています
+    &__button {
+
+        @include pc {
+            display: none;
+        }
+
+        @include tab {
+            display: none;
+        }
+
+        @include sp {
+            display: inline;
+        }
+
+        .products__viewButton {
+            margin-top: 100px;
+        }
+    }
 }
 
 /*------------------------------------------*
@@ -593,6 +891,10 @@ $navHeight: 100px;
     &__images {
        display: flex;
        justify-content: space-between;
+
+       img {
+           max-width: 95%;
+       }
     }
 }
 
