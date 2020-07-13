@@ -340,11 +340,33 @@ $spNavHeight: 60px;
     background: url("../img/dummy_main1.jpg") center center / cover no-repeat fixed;
     height: 100vh;
     margin-bottom: $intervalHeight;
-
+    position: relative;
     @include sp {
         background-attachment: local;
     }
+
+    &__catchCopy {
+        color: white;
+        font-size: 4rem;
+        font-family: 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN","Hiragino Mincho Pro",HGS明朝E,メイリオ,Meiryo,serif;
+        position: absolute;
+        top: 23%;
+        bottom: 0;
+        left: 50%;
+        right: 0;
+
+        @include tab {
+            left: 0;
+            text-align: center;
+        }
+
+        @include sp {
+            font-size: 3rem;
+        }
+        
+    }
 }
+
 
 /*------------------------------------------*
 * about
@@ -450,8 +472,8 @@ $spNavHeight: 60px;
 
                 @include tab {
                     margin: 0 auto;
-                    max-width: 450px;
-                    max-height: 450px;
+                    max-width: 300px;
+                    max-height: 300px;
                     margin-bottom: 20px;
                 }
             }
@@ -472,7 +494,7 @@ $spNavHeight: 60px;
                 font-size: 1.8rem;
 
                 @include tab {
-                    margin-bottom: 100px;
+                    margin-bottom: 40px;
                 }
 
                 @include sp {
@@ -693,7 +715,6 @@ $spNavHeight: 60px;
         }
 
         &__damage {
-
             width: 30%;
             color: white;
             background-color: $black;
@@ -704,31 +725,37 @@ $spNavHeight: 60px;
                 height: 200px;
             }
             
+            &_box {
+                width: 250px;
+                height: 150px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+
+                @include sp {
+                    width: 150px;
+                    height: 120px;
+                }
+            }
+
             p {
                 font-size: 1.9rem;
                 position: absolute;
-                top: 35%;
-                left: 33%;
-                -webkit-transform : translate(-50%,-50%);
-                transform : translate(-50%,-50%);
+                top: 0px;
 
                 @include sp {
                     font-size: 1.5rem;
-                    top: 20%;
-                    left: 32%;
-                    -webkit-transform : translate(0,0);
-                    transform : translate(0,0);
                 }
             }
 
             &__price {
+                min-width: 200px;
                 font-size: 11rem;
                 font-family: "Roboto Black", sans-serif;
-                position: absolute;
-                top: 55%;
-                left: 40%;
-                -webkit-transform : translate(-50%,-50%);
-                transform : translate(-50%,-50%);
+            
                 span {
                     letter-spacing: -3px;
                     
@@ -743,14 +770,13 @@ $spNavHeight: 60px;
 
                 @include sp {
                     font-size: 8rem;
-                    left: 48%;
                 }
             }
             &__price::after {
                 font-size: 4rem;
                 content: "億円";
                 position: absolute;
-                top: 40px;
+                top: 42px;
                 -ms-writing-mode: tb-rl;
                 writing-mode: vertical-rl;
                 font-weight: bold;
@@ -796,8 +822,11 @@ $spNavHeight: 60px;
 * news
 *------------------------------------------*/
 .news {
-
     margin-bottom: $intervalHeight;
+
+    @include sp {
+        margin-bottom: 100px;
+    }
 
     &__titleItems {
         display: flex;
@@ -881,7 +910,7 @@ $spNavHeight: 60px;
         }
 
         .products__viewButton {
-            margin-top: 100px;
+            margin-top: 70px;
         }
     }
 }

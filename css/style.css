@@ -350,11 +350,36 @@ body a {
   background: url("../img/dummy_main1.jpg") center center/cover no-repeat fixed;
   height: 100vh;
   margin-bottom: 140px;
+  position: relative;
 }
 
 @media (max-width: 768px) {
   .mainVisual {
     background-attachment: local;
+  }
+}
+
+.mainVisual__catchCopy {
+  color: white;
+  font-size: 4rem;
+  font-family: 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN","Hiragino Mincho Pro",HGS明朝E,メイリオ,Meiryo,serif;
+  position: absolute;
+  top: 23%;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+}
+
+@media (max-width: 1023px) {
+  .mainVisual__catchCopy {
+    left: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainVisual__catchCopy {
+    font-size: 3rem;
   }
 }
 
@@ -485,8 +510,8 @@ body a {
 @media (max-width: 1023px) {
   .products__items__item img {
     margin: 0 auto;
-    max-width: 450px;
-    max-height: 450px;
+    max-width: 300px;
+    max-height: 300px;
     margin-bottom: 20px;
   }
 }
@@ -511,7 +536,7 @@ body a {
 
 @media (max-width: 1023px) {
   .products__items__item_price {
-    margin-bottom: 100px;
+    margin-bottom: 40px;
   }
 }
 
@@ -789,33 +814,40 @@ body a {
   }
 }
 
+.problem__items__damage_box {
+  width: 250px;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .problem__items__damage_box {
+    width: 150px;
+    height: 120px;
+  }
+}
+
 .problem__items__damage p {
   font-size: 1.9rem;
   position: absolute;
-  top: 35%;
-  left: 33%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 0px;
 }
 
 @media (max-width: 768px) {
   .problem__items__damage p {
     font-size: 1.5rem;
-    top: 20%;
-    left: 32%;
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
   }
 }
 
 .problem__items__damage__price {
+  min-width: 200px;
   font-size: 11rem;
   font-family: "Roboto Black", sans-serif;
-  position: absolute;
-  top: 55%;
-  left: 40%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 .problem__items__damage__price span {
@@ -837,7 +869,6 @@ body a {
 @media (max-width: 768px) {
   .problem__items__damage__price {
     font-size: 8rem;
-    left: 48%;
   }
 }
 
@@ -845,7 +876,7 @@ body a {
   font-size: 4rem;
   content: "億円";
   position: absolute;
-  top: 40px;
+  top: 42px;
   -ms-writing-mode: tb-rl;
   -webkit-writing-mode: vertical-rl;
           writing-mode: vertical-rl;
@@ -897,6 +928,12 @@ body a {
 *------------------------------------------*/
 .news {
   margin-bottom: 140px;
+}
+
+@media (max-width: 768px) {
+  .news {
+    margin-bottom: 100px;
+  }
 }
 
 .news__titleItems {
@@ -1011,7 +1048,7 @@ body a {
 }
 
 .news__button .products__viewButton {
-  margin-top: 100px;
+  margin-top: 70px;
 }
 
 /*------------------------------------------*
