@@ -347,7 +347,7 @@ body a {
 * mainVisual
 *------------------------------------------*/
 .mainVisual {
-  background: url("../img/dummy_main1.jpg") center center/cover no-repeat fixed;
+  background: url("../img/dummy_main1.png") center center/cover no-repeat fixed;
   height: 100vh;
   margin-bottom: 140px;
   position: relative;
@@ -379,7 +379,7 @@ body a {
 
 @media (max-width: 768px) {
   .mainVisual__catchCopy {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 }
 
@@ -827,7 +827,7 @@ body a {
 
 @media (max-width: 768px) {
   .problem__items__damage_box {
-    width: 150px;
+    width: 180px;
     height: 120px;
   }
 }
@@ -1093,6 +1093,7 @@ body a {
 
 .shop__images img {
   max-width: 90%;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {

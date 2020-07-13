@@ -337,7 +337,7 @@ $spNavHeight: 60px;
 * mainVisual
 *------------------------------------------*/
 .mainVisual {
-    background: url("../img/dummy_main1.jpg") center center / cover no-repeat fixed;
+    background: url("../img/dummy_main1.png") center center / cover no-repeat fixed;
     height: 100vh;
     margin-bottom: $intervalHeight;
     position: relative;
@@ -361,7 +361,7 @@ $spNavHeight: 60px;
         }
 
         @include sp {
-            font-size: 3rem;
+            font-size: 2.8rem;
         }
         
     }
@@ -736,7 +736,8 @@ $spNavHeight: 60px;
                 margin: auto;
 
                 @include sp {
-                    width: 150px;
+                    // background-color: tomato;
+                    width: 180px;
                     height: 120px;
                 }
             }
@@ -947,12 +948,13 @@ $spNavHeight: 60px;
         }
 
         img {
-           max-width: 90%;
+            max-width: 90%;
+            margin: 0 auto;
 
-           @include sp {
-               max-width: 100%;
-               margin: 0 auto;
-           }
+            @include sp {
+                max-width: 100%;
+                margin: 0 auto;
+            }
         }
 
     }
