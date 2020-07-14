@@ -125,17 +125,7 @@ $spNavHeight: 60px;
     background-color: white;
     z-index: 100;
     border-bottom: 1px solid $black;
-    // debug用_
-    // @include pc {
-        
-    // }
-    // @include tab {
-    //     background-color: yellowgreen;
-    // }
-    // @include sp {
-    //     background-color: tomato;
-    // }
-
+    
     .nav {
         color: $black;
         max-width: $maxWidth;
@@ -143,7 +133,7 @@ $spNavHeight: 60px;
     
         &__logo {
             display: flex;
-            width: 220px;
+            width: 240px;
             align-items: center;
 
             @include sp {
@@ -161,7 +151,7 @@ $spNavHeight: 60px;
                 }
             }
     
-            p {
+            h1 {
                 font-size: 2.8rem;
                 line-height: $navHeight;
 
